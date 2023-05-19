@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <label for="" class="my-2">Email</label>
+    <label for="" style="font-weight: bold;" class="my-2">Email</label>
     <input type="email" placeholder="Email..." class="form-control mb-1" formControlName="email">
     <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="alert alert-danger">
       <p *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
@@ -8,7 +8,7 @@
     </div>
 
 
-    <label for="" class="my-2">Password</label>
+    <label for="" style="font-weight: bold;"  class="my-2">Password</label>
     <input  type="password" placeholder="Password..." class="form-control mb-1" formControlName="password">
     <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="alert alert-danger">
       <p *ngIf="loginForm.get('password')?.getError('required')">password is required</p>

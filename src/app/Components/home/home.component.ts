@@ -33,11 +33,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
-
       next:(response)=>{
         console.log(response.data);
         this.products = response.data
-
       }
     })
   }
