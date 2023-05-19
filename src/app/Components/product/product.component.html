@@ -1,0 +1,9 @@
+<div class="product p-3">
+  <div style="cursor: pointer;" routerLink="/product/{{product?.id}}" >
+    <img [src]="product?.imageCover" class="w-100" alt="">
+    <h6 class="text-main">{{product?.category?.name}}</h6>
+    <h3 >{{product?.title | seemore:2}}</h3>
+    <p>{{product?.description | seemore:5}}</p>
+  </div>
+  <button (click)="addProducttoCard(product?.id)" class="btn bg-main text-white m-auto d-block w-100">Add To Card</button>
+</div>

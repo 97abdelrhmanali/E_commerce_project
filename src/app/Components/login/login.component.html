@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <label for="" class="my-2">Email</label>
+    <input type="email" placeholder="Email..." class="form-control mb-1" formControlName="email">
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="alert alert-danger">
+      <p *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
+      <p *ngIf="loginForm.get('email')?.getError('email') && loginForm.get('email')?.getError('pattern')">Enter valid Email</p>
+    </div>
+
+
+    <label for="" class="my-2">Password</label>
+    <input  type="password" placeholder="Password..." class="form-control mb-1" formControlName="password">
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="alert alert-danger">
+      <p *ngIf="loginForm.get('password')?.getError('required')">password is required</p>
+      <p *ngIf="loginForm.get('password')?.getError('pattern')">Enter Minimum eight characters, at least one letter, one number and one special character:</p>
+    </div>
+    <button [disabled]="loginForm.status == 'INVALID'" type="submit" class="btn bg-main text-white ms-auto d-block">LogIn</button>
+  </form>
+</div>

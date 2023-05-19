@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/images/freshcart-logo.svg" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+      <ul *ngIf="_AuthService.userIslockedin.value" class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="allorders" routerLinkActive="active">AllOrders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="categories" routerLinkActive="active">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="brands" routerLinkActive="active">Brands</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <i class="fab fa-instagram mx-2"></i>
+          <i class="fab fa-facebook mx-2"></i>
+          <i class="fab fa-tiktok mx-2"></i>
+          <i class="fab fa-twitter mx-2"></i>
+          <i class="fab fa-youtube mx-2"></i>
+          <i class="fab fa-linkedin mx-2"></i>
+        </li>
+      </ul>
+
+
+      <ul class="d-flex list-unstyled mt-3">
+        <li *ngIf="!_AuthService.userIslockedin.value" class="mx-2">
+            <a style="text-decoration: none; color: black;" routerLink="signin" routerLinkActive="active">Sign in</a>
+        </li>
+        <li *ngIf="!_AuthService.userIslockedin.value" class="mx-2">
+          <a style="text-decoration: none; color: black;" routerLink="login" routerLinkActive="active">Log in</a>
+        </li>
+        <li *ngIf="_AuthService.userIslockedin.value" class="mx-2">
+          <a style="text-decoration: none; color: black; cursor: pointer;" (click)="_AuthService.logout()">Log Out</a>
+        </li>
+        <li *ngIf="_AuthService.userIslockedin.value" class="mx-2">
+          <a style="text-decoration: none; color: black; cursor: pointer;" routerLink="/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" routerLink="cart" routerLinkActive="active">
+            <i class="fas fa-shopping-cart fa-lg text-main p-3"></i>
+            <span class="badge bg-main position-absolute top-0 end-0">{{this.numOfCartItems}}</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

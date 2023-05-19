@@ -1,0 +1,16 @@
+<h3 class="text-center display-2 mb-4 text-main" style="font-weight: bold;">Brands</h3>
+<div class="row g-4">
+  <div class="col-md-3" *ngFor="let brand of brands">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="h5 text-main" style="font-weight: 700;">{{brand.name}}</h2>
+      </div>
+      <div class="card-body">
+        <img [src]="brand.image" class="w-100" style="height: 250px;" alt="">
+      </div>
+      <div class="card-footer">
+        <p class="text-muted">{{brand.createdAt}}</p>
+      </div>
+    </div>
+  </div>
+</div>

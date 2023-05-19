@@ -1,0 +1,28 @@
+<div class="container">
+  <form class="w-75 m-auto" [formGroup]="addressForm" (ngSubmit)="checkout(addressForm)">
+    <label for="details">Details</label>
+    <input type="text" id="details" class="form-control my-2" formControlName="details" placeholder="Details...">
+    <div *ngIf="addressForm.get('details')?.invalid && addressForm.get('details')?.touched" class="alert alert-danger">
+      <p *ngIf="addressForm.get('details')?.getError('required')">details is required</p>
+      <p *ngIf="addressForm.get('details')?.getError('minlength')">Min length is 3</p>
+      <p *ngIf="addressForm.get('details')?.getError('maxlength')">Max length is 40</p>
+    </div>
+
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" class="form-control my-2" formControlName="phone" placeholder="Phone...">
+    <div class="alert alert-danger" *ngIf="addressForm.get('phone')?.invalid && addressForm.get('phone')?.touched">
+      <p *ngIf="addressForm.get('phone')?.getError('required')">Phone number is required</p>
+      <p *ngIf="addressForm.get('phone')?.getError('pattern')">Enter valid Phone number</p>
+    </div>
+
+    <label for="city">City</label>
+    <input type="text" id="city" class="form-control my-2" formControlName="city"placeholder="City...">
+    <div *ngIf="addressForm.get('city')?.invalid && addressForm.get('city')?.touched" class="alert alert-danger">
+      <p *ngIf="addressForm.get('city')?.getError('required')">city is required</p>
+      <p *ngIf="addressForm.get('city')?.getError('minlength')">Min length is 3</p>
+      <p *ngIf="addressForm.get('city')?.getError('maxlength')">Max length is 20</p>
+    </div>
+
+    <button class="btn bg-main px-3 text-white">CheckOut</button>
+  </form>
+</div>

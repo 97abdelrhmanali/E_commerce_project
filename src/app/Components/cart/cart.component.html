@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-flex  align-items-center justify-content-between">
+    <h2 class="mb-2">Your Carts</h2>
+    <button (click)="ClearCart() ; cartProducts = []"  class="btn btn-outline-danger">Clear Cart</button>
+  </div>
+
+  <div *ngFor="let products of cartProducts" class="row p-3 my-2 shadow-sm">
+    <div class="col-md-1">
+      <img [src]="products?.product.imageCover" class="w-100" alt="">
+    </div>
+    <div class="col-md-11 pt-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <h3 class="fw-bolder">{{products?.product.title}}</h3>
+          <p>{{products.price}}</p>
+          <button (click)="deleteCartProduct(products?.product.id)" class="btn text-danger">Remove</button>
+        </div>
+        <div>
+          <button (click)="UpdateCart(products?.product.id,products.count + 1) ; products.count = products.count+1" class="btn btn-outline-success">+</button>
+          <span class="mx-2">{{products?.count}}</span>
+          <button (click)="UpdateCart(products?.product.id,products.count - 1) ; products.count = products.count-1" class="btn btn-outline-danger">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button  routerLink="/checkout/{{cardid}}" class="btn bg-main px-3 d-block ms-auto text-white">CheckOut</button>
+</div>

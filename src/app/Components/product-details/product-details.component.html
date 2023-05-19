@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row g-3">
+    <div class="col-md-3">
+      <!-- <img [src]="productDetails?.imageCover" class="w-100" alt=""> -->
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let img of images">
+          <ng-template carouselSlide>
+            <img [src]="img" class="w-100">
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-9  py-3 align-self-center">
+      <h2>{{productDetails?.title}}</h2>
+      <p>{{productDetails?.description}}</p>
+      <p>{{productDetails?.category?.name}}</p>
+      <p><span class="text-main">{{productDetails?.price | currency:'EGP '}}</span></p>
+      <button (click)="addProducttoCard(productDetails?.id)" class="btn bg-main w-100 text-white py-2">+Add To Card</button>
+    </div>
+  </div>
+</div>
+
