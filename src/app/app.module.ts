@@ -20,7 +20,7 @@ import { AllOrdersComponent } from './Components/all-orders/all-orders.component
 import { ROUTES, RouterModule } from '@angular/router';
 import{BrowserAnimationsModule}from"@angular/platform-browser/animations"
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { AddHeaderInterceptor } from './add-header.interceptor';
+import { AddHeaderInterceptor } from './interceptors/add-header.interceptor';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { BrandsComponent } from './Components/brands/brands.component';
